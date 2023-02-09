@@ -10,3 +10,7 @@ jobs:
         run: docker build -t poying1998/flask-redis:latest .
       - name: list docker image
         run: docker image ls
+      - name: dockerhub login
+        run: docker login -u ${{ secrets.DOCKERHUB_USER }} -p ${{ secrets.DOCKERHUB_RWTOK }}
+      - name: push to dockerhub
+        run: docker image push poying1998/flask-redis:lastest
